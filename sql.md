@@ -88,7 +88,61 @@ ALTER TABLE <テーブル名> ADD COLUMN <列の定義>;
 -- ALTER TABLE Shohin ADD COLUMN shohinmei_kana VARCHAR(100);
 ```
 
+### 列の削除
 
+```sql
+ALTER TABLE <テーブル名> DROP COLUMN <列の名前>;
+-- ALTER TABLE Shohin DROP COLUMN shohinmei_kana;
+```
+
+### データの登録
+
+```sql
+-- DML:データ登録
+BEGIN(START) TRANSACTION;
+
+INSERT INTO shohin VALUES ('0001', 'Tシャツ', '衣服', 1000, 50, '2019-09-21');
+:
+:
+INSERT INTO shohin VALUES ('0008', 'ボールペン', '事務用品', 100, NULL, '2009-11-11');
+
+COMMIT;
+```
+
+### テーブルの訂正
+
+```sql
+ALTER TABLE Sohin (RENAME TO)to Shohin;
+```
+
+# 検索
+## 列出力(SELECT)
+SELECT分でデータを検索し、取り出す -> 問い合わせ、queryという
+
+```sql
+SESLECT <列名>, ...
+  FROM <テーブル名>;
+-- SELECT shohin_id, shohin_mei
+--    FROM Shohin;
+```
+
+### 全ての列を出力
+
+```sql
+SELECT *
+    FROM <テーブル名>;
+-- SELECT *
+--     FROM Shohin;
+```
+## 列に別名をつける
+
+```sql
+SELECT shohin_id AS id,
+SELECT shohin_id AS "商品名",
+  FROm Shohin;
+```
+
+日本語の別名は " で囲む
 
 
 
