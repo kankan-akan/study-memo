@@ -144,12 +144,55 @@ SELECT shohin_id AS "商品名",
 
 日本語の別名は " で囲む
 
+## 定数の出力
 
+```sql
+SELECT '商品' AS mojiretu(文字列定数), 38(数値定数) AS kazu, '2009-02-24'(日付定数) SA hizuke, shohin_id, shohin_mei
+  FROM Shohin;
+```
 
+## 結果から重複を防ぐ
 
+```sql
+SELECT DISTINCT shohin_bunrui
+  FROM Shohin;
 
+  -- shohin_bunrui
+  -- ----------
+  -- キッチン
+  -- 衣服
+  -- 事務用品
+```
 
+nullも１種類のデータとして分類される
 
+### 複数列の組み合わせ
 
+```sql
+SELECT DISTINCT shohin_bunrui, torokubi
+  FROM Shohin;
 
+  -- shohin_bunrui | torokubi
+  ----------------------------------------
+  -- 衣服                | 2009-09-20
+  -- 衣服                | 2009-09-11
+  -- :
+  -- :
+```
 
+## WHEREによる行の選択
+
+```sql
+SELECT <>, <>...
+FROM <>
+WHERE <>;
+
+-- WHERE shohin_bunrui = '衣服';
+```
+
+## コメントアウト
+```sql
+-- この行をコメントアウト
+/* この２行を
+コメントアウト */
+```
