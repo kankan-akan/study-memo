@@ -116,7 +116,8 @@ ALTER TABLE Sohin (RENAME TO)to Shohin;
 ```
 
 # 検索
-## 列出力(SELECT)
+## 基本
+### 列出力(SELECT)
 SELECT分でデータを検索し、取り出す -> 問い合わせ、queryという
 
 ```sql
@@ -134,7 +135,7 @@ SELECT *
 -- SELECT *
 --     FROM Shohin;
 ```
-## 列に別名をつける
+### 列に別名をつける
 
 ```sql
 SELECT shohin_id AS id,
@@ -144,14 +145,14 @@ SELECT shohin_id AS "商品名",
 
 日本語の別名は " で囲む
 
-## 定数の出力
+### 定数の出力
 
 ```sql
 SELECT '商品' AS mojiretu(文字列定数), 38(数値定数) AS kazu, '2009-02-24'(日付定数) SA hizuke, shohin_id, shohin_mei
   FROM Shohin;
 ```
 
-## 結果から重複を防ぐ
+### 結果から重複を防ぐ
 
 ```sql
 SELECT DISTINCT shohin_bunrui
@@ -180,7 +181,7 @@ SELECT DISTINCT shohin_bunrui, torokubi
   -- :
 ```
 
-## WHEREによる行の選択
+### WHEREによる行の選択
 
 ```sql
 SELECT <>, <>...
@@ -190,9 +191,68 @@ WHERE <>;
 -- WHERE shohin_bunrui = '衣服';
 ```
 
-## コメントアウト
+### コメントアウト
 ```sql
 -- この行をコメントアウト
 /* この２行を
 コメントアウト */
 ```
+
+## 算術・比較
+### 算術演算子
+
+hanbai_tankaの２倍を"hanbai_tanka_x2"として出力
+
+```sql
+SELECT shohin_mei, hanbai_tanka,
+hanbai_tanka * 2 AS "hanbai_tanka_x2"
+FROM Shohin;
+```
+
++：和
+-：減
+*：乗
+/：除
+他：(1 + 2) * 3
+
+NULLを含んだ計算は全てNULLとなる
+
+### 比較演算子
+
+hanbai_tankaが500ではない行
+
+```sql
+SELECT shohin_mei, hanbai_tanka,
+FROM Shohin
+WHERE hanbai_tanka < > 500;
+
+-- 販売単価が1000円以上
+-- WHERE hanbai_tanka >= 1000;
+
+-- 登録日が2009-09-27より前
+-- WHERE tourokubi < '2009-09-27';
+
+-- 販売単価が仕入れ単価より500円以上高い
+-- WHERE hanbai_tanka - siire_tanka >= 500
+```
+
+=：等しい
+< >：等しくない
+>=：以上
+>：より大きい
+<=：以下
+<：より小さい
+
+＊NULLは比較演算子で出力できない
+
+```sql
+SELECT shohin_mei, hanbai_tanka,
+FROM Shohin
+WHERE hanbai_tanka IS NULL;
+-- 　x WHERE siire_tanka = NULL;
+
+-- NULLでない行を選択する場合
+-- WHERE hanbai_tanka IS NOT NULL; 
+```
+
+## 論理演算子
