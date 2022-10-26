@@ -256,3 +256,12 @@ WHERE hanbai_tanka IS NULL;
 ```
 
 ## 論理演算子
+### NOT演算子
+
+```sql
+SELECT shohin_mei, shohin_bunrui, hanbai_tanka
+  FROM Shohin
+WHERE NOT hanbai_tanka >= 1000;
+```
+
+`hanbai_tanka >= 1000`という条件が否定され、1000円未満の行が選択される
