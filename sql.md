@@ -265,3 +265,11 @@ WHERE NOT hanbai_tanka >= 1000;
 ```
 
 `hanbai_tanka >= 1000`という条件が否定され、1000円未満の行が選択される
+
+### AND演算子
+```sql
+SELECT shohin_mei, shohin_bunrui, hanbai_tanka
+  FROM Shohin
+WHERE shohin_bunrui = 'キッチン用品'
+AND hanbai_tanka >= 1000;
+```
