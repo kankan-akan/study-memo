@@ -266,10 +266,30 @@ WHERE NOT hanbai_tanka >= 1000;
 
 `hanbai_tanka >= 1000`という条件が否定され、1000円未満の行が選択される
 
-### AND演算子
+### AND演算子・OR演算子
+
 ```sql
+-- AND演算子
 SELECT shohin_mei, shohin_bunrui, hanbai_tanka
   FROM Shohin
 WHERE shohin_bunrui = 'キッチン用品'
 AND hanbai_tanka >= 1000;
+
+-- OR演算子
+SELECT shohin_mei, shohin_bunrui, hanbai_tanka
+  FROM Shohin
+WHERE shohin_bunrui = 'キッチン用品'
+OR hanbai_tanka >= 1000;
 ```
+
+AND / OR両方同時に書くとANd演算子が優先される
+両方使用する場合、()内に`OR`を記述
+
+```sql
+SELECT shohin_mei, shohin_bunrui, hanbai_tanka
+  FROM Shohin
+WHERE shohin_bunrui = 'キッチン用品'
+AND ( torokubi = '2009-09-21'
+          OR tourokubi = '2009-09-11' );
+```
+
