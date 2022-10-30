@@ -339,4 +339,33 @@ SELECT COUNT (siire_tanka)
 
 `COUNT (*)`はNULLを含む行を、`COUNT (<列名>)`はNULLを除外した行を数える
 
-### 合計を求める
+### 合計
+
+販売単価（hanbai_tanka）の合計
+
+```sql
+SELECT SUM(hanbai_tanka) 
+FROM Shohin;
+```
+
+販売単価・仕入れ単価それぞれの合計
+
+```sql
+SELECT SUM(hanbai_tanka), SUM(shiire_tanka)
+  FROM Shohin;
+```
+
+集約関数はNULLを除外する（０と同じ扱い）。ただし`COUNT(*)`はNULLを含む。
+
+### 平均値
+
+販売単価（hanbai_tanka）の平均値
+
+```sql
+SELECT AVG(hanbai_tanka) 
+FROM Shohin;
+```
+
+### 最大値・最小値
+
+
