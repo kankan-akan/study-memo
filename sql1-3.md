@@ -236,12 +236,12 @@ WHERE hanbai_tanka < > 500;
 -- WHERE hanbai_tanka - siire_tanka >= 500
 ```
 
-- =：等しい
-- < >：等しくない
-- >=：以上
-- >：より大きい
-- <=：以下
-- <：より小さい
+- ＝：等しい
+- ＜＞：等しくない
+- ＞＝：以上
+- ＞：より大きい
+- ＜＝：以下
+- ＜：より小さい
 
 ＊NULLは比較演算子で出力できない
 
@@ -367,5 +367,51 @@ FROM Shohin;
 ```
 
 ### 最大値・最小値
+
+```sql
+SELECT MAX(hanbai_tanka), MIN(shiire_tanka)
+  FROM Shohin;
+```
+
+SUM/AVG関数＝数値のみ
+MAX/MIN関数＝原則、どんなデータ型にも適用可能
+
+```sql
+SELECT MAX(torokubi), MIN(torokubi)
+  FROM Shohin;
+```
+
+### 重複値を除外
+
+値の重複を除外し、行数を数える（種類の数を数える）
+
+```sql
+DISTINCT (COUNT shohin_bunrui)
+  FROM Shohin;
+
+-- count
+-- --------
+-- 3
+```
+
+DISTINCTは必ずカッコ内（引数）に記述  
+shohin_bunruiの重複を除外　→　その結果から行数をカウント
+
+
+他の集約関数を使用した場合
+
+```sql
+SELECT SUM(hanbai_tanka), SUM(DISTINCT hanbai_tanka)
+  FROM shohin;
+
+  -- sum | sum
+  -- -------------
+  -- 16780 | 16280
+
+  -- 2つの500円の行が１つになっている
+```
+
+## テーブルをグループに切り分ける
+
 
 
