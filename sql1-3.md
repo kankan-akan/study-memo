@@ -412,6 +412,55 @@ SELECT SUM(hanbai_tanka), SUM(DISTINCT hanbai_tanka)
 ```
 
 ## テーブルをグループに切り分ける
+### GROUP BY句
+
+列中の部類ごとにグループ分けする
+
+```sql
+SELECT shohin_bunrui, COUNT(*)
+FROM Shohin
+GROUP BY shohin_bunrui;
+
+-- shohin_bunrui | count
+-- -------------------------------
+-- 衣服              |   2
+-- 事務用品        |   2
+-- キッチン用品  |   4
+```
+
+NULLも１つのグループとして分類される
+
+### WHERE句を使ったGROUP BYの動作
+
+```sql
+SELECT shiire_tanka, COUNT(*)
+  FROM Shohin
+WHERE shohin_bunrui = '衣服'
+GROUP BY shiire_tanka;
+```
+WHERE句で絞り込み　→　集約
 
 
+SELECT文の実行順序  
+FROM -> WHERE -> GROUP BY -> SELECT
+
+#### 集約関数とGROUP BY句によくある間違い
+
+1. SELECT句に余計な列を書いてしまう  
+COUNTのような集約関数を使用した場合、SELECT句には
+- 定数（数値、文字列）
+- 集約関数
+- GROUP BY句で指定した列名（つまり集約キー）
+の３つのみ
+
+1. GROUP BY句に列の別名で書いてしまう
+SELECT句のASでつけた別名は、GROUP BY句では使用できない  
+(SELECT句は一番最後に実行され、DBMSはGRUOP BYで指定された別名を理解できない)
+
+1. 表示される結果はソートされない
+結果はランダムで出力され、ソート（並び替え）されるわけではない
+
+1. WHERE句に集約関数は使用できない
+集約関数（COUNT等）が使用できるのは、SELECT / HAVING / ORDER BY句のみ  
+条件を指定する場合はHAVING句を使用する
 
