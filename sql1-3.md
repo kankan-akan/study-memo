@@ -450,17 +450,38 @@ FROM -> WHERE -> GROUP BY -> SELECT
 COUNTのような集約関数を使用した場合、SELECT句には
 - 定数（数値、文字列）
 - 集約関数
-- GROUP BY句で指定した列名（つまり集約キー）
+- GROUP BY句で指定した列名（つまり集約キー）  
 の３つのみ
 
 1. GROUP BY句に列の別名で書いてしまう
 SELECT句のASでつけた別名は、GROUP BY句では使用できない  
 (SELECT句は一番最後に実行され、DBMSはGRUOP BYで指定された別名を理解できない)
 
-1. 表示される結果はソートされない
+1. 表示される結果はソートされない  
 結果はランダムで出力され、ソート（並び替え）されるわけではない
 
-1. WHERE句に集約関数は使用できない
+1. WHERE句に集約関数は使用できない  
 集約関数（COUNT等）が使用できるのは、SELECT / HAVING / ORDER BY句のみ  
 条件を指定する場合はHAVING句を使用する
+
+### 集約した結果に条件を指定
+
+COUNT関数等を使ってデータを集約した後は、HAVING句を使って条件を指定  
+HAVING句はGROUP BY句の後ろに置く
+
+```sql
+-- 商品分類で、含まれる行が２行の場合を指定
+SELECT shohin_bunrui, COUNT(*)
+  FROM shohin
+GROUP BY shohin_bunrui
+HAVING COUNT(*) = 2;
+
+-- 販売単価の平均が2500円以上
+SELECT shohin_bunrui, AVG(hanbai_tanka)
+  FROM shohin
+GROUP BY shohin_bunrui
+HAVING AVG(hanbai_tanka) >= 2500;
+```
+
+### HAVING句における要素
 
