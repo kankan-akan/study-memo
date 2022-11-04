@@ -485,3 +485,8 @@ HAVING AVG(hanbai_tanka) >= 2500;
 
 ### HAVING句における要素
 
+- 定数
+- 集約関数
+- GROUP BY句で指定した列名（集約キー）  
+GROUP BY句で指定した列名以外はHAVING句で指定できない
+
