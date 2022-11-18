@@ -490,3 +490,20 @@ HAVING AVG(hanbai_tanka) >= 2500;
 - GROUP BY句で指定した列名（集約キー）  
 GROUP BY句で指定した列名以外はHAVING句で指定できない
 
+### HAVING句よりもWHERE句に書いた方が良い条件
+
+WHERE句＝行に対する条件指定
+HAVING句＝グループに対する条件指定(GROUP BY → HAVING)  
+
+## 検索結果を並び替える
+
+```sql
+SELECT shohin_id, shohin_mei, hanbai_tanka, shiire_tanka
+  FROM Shohin
+ORDER BY hanbai_tanka;
+-- 販売単価の照準で並び替え
+```
+
+ORDER BY句はどんな場合でもSELECT文の最後に記述する
+
+### 昇順・降順
