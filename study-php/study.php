@@ -40,6 +40,22 @@
     $level = '入門';
 
     echo $lesson.$level; // PHP入門
+
+    date_default_timezone_set('Asia/Tokyo');
+    echo '現在は、' . date('G時 i分 s秒') . 'です';
   ?>
 </html>
 
+#繰り返し
+<?php
+  $i = 1; // 初期化
+
+  while ($i < 3):
+    $i = $i + 1;
+    echo $i . '<br>';
+  endwhile;
+
+  for($i = 1; $i < 3; $i = $i + 1):
+    echo $i . '<br>';
+  endfor;
+?>
