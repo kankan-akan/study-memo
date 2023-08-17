@@ -59,3 +59,77 @@
     echo $i . '<br>';
   endfor;
 ?>
+
+#1年後までの日付を表示
+<?php
+  date_default_timezone_set('Asia/Tokyo');
+
+  for($i = 0, $i<366; $i ++):
+    // $time = strtotime('+' . $i . ' day');
+    $time = strtotime("+$i day");
+    $day = date('n/j(D)', $time);
+    echo $day . '<br>';
+  endfor;
+?>
+
+#配列
+<?php
+$week_name = ['日', '火', '水', '木', '金', '土'];
+// echo $week_name[2] . '<br>';
+
+date_default_timezone_set('Asia/Tokyo');
+$week = date('w');
+echo $week_name[$week]
+?>
+
+#連想配列
+<?php
+$fruits =[
+    'apple' => 'りんご',
+    'grape' => 'ぶどう',
+    'lemon' => 'レモン',
+    'tomato' => 'トマト'
+];
+?>
+
+<dl>
+  <?php foreach($fruits as $english => $japanese): ?>
+    <dt><?php echo $english; ?></dt>
+    <dd><?php echo $japanese; ?></dd>
+  <?php endforeach; ?>
+</dl>
+
+#条件
+<?php
+$time = 8;
+?>
+<?php if ($time < 9): ?>
+  <p>＊営業時間外です</p>
+<?php else: ?>
+    <p>ようこそ</p>
+<?php endif; ?>
+
+<?php
+$S = 'abc';
+if ($s): // $s !== ''
+  echo '$sには文字が入っています';
+endif;
+
+$x = 10;
+if (!$x): // $x === 0
+  echo '$xは0です';
+endif;
+?>
+
+#切り上げ、切り捨て
+<?php echo floor(100 / 300 * 100); ?>引きです。
+
+<br>
+<?php echo ceil(3.33); ?><br>
+<?php echo round(3.66, 1); ?><br>
+
+#文字列のフォーマットを整える
+<?php
+$date = sprintf('%40d.%02d.%02d', 21, 10, 5);
+echo $date;
+?>
