@@ -130,6 +130,40 @@ endif;
 
 #文字列のフォーマットを整える
 <?php
-$date = sprintf('%40d.%02d.%02d', 21, 10, 5);
+$date = sprintf('%40d.%02d.%02d', 21, 10, 5); //0021.10.05
 echo $date;
 ?>
+
+#ファイル書き込み
+<?php
+  $success = fili_put_contents('data/news.txt',
+    'ホームページをリニューアルしました');
+
+  if ($sucsess !== false) {
+    echo 'ファイルの書き込みが完了しました'
+  } else {
+    echo 'ファイルの書き込みに失敗しました'
+  }
+?>
+
+#ファイルの読み込み
+<?php
+$news = file_get_contents('data/news.txt');
+echo $news
+
+// ファイルの追記
+$news = $news . "<br> 追加のニュースです";
+$success = file_put_contents('data/news.txt');
+// readfile('data/news.txt');
+?>
+
+#xmlファイルを読み込む
+<?php
+$xmifree = simplexml_load_file('rss.xml');
+foreach ($xmlfree->chanenel->item as $item); // $itemに配列を放り込む
+?>
+・<a href="<?php echo $item->link ?>"><?php echo $item->title ?></a>
+<?php
+endforeach;
+?>
+
