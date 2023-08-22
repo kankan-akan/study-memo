@@ -30,6 +30,10 @@
     $x = 3;
     echo ++$x; // 4
     echo $x++; // 3
+
+    $name = '名前';
+    echo "{$name}です"; // 名前です
+    echo '{$name}です'; // {name}です
   ?>
 </html>
 
@@ -110,7 +114,7 @@ $time = 8;
 <?php endif; ?>
 
 <?php
-$S = 'abc';
+$s = 'abc';
 if ($s): // $s !== ''
   echo '$sには文字が入っています';
 endif;
