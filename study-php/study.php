@@ -171,3 +171,69 @@ foreach ($xmlfree->chanenel->item as $item); // $itemに配列を放り込む
 endforeach;
 ?>
 
+#関数
+<?php
+function printCircleArea($radius) {
+  echo $radius * $radius * 3;
+}
+
+printCircleArea(6);
+?>
+
+#データの受け取り
+<form action="sent.php" name="fruits">
+  <option value="orange">orange</option>
+  <option value="apple">apple</option>
+  <input type="text" name="name">
+</form>
+
+sent.php-------
+<?php
+echo $_POST['fruits'];
+echo $_POST['name'];
+?>
+
+#コンストラクタ
+<?php
+class Menu {
+  public $name; // プロパティ（インスタンスが持つデータ）
+  public function __construct() { // インスタンス生成時に自動的に呼ばれる
+    echo 'hello World';
+  }
+
+  public function hello() {
+    echo '私の名前は'.$this->name.'です'; // プロパティ名に$は不要
+  } // $this : このメソッドを呼び出しているインスタンスに置き換えられる
+}
+
+$curry = new Menu();
+$curry->name = 'CURRY';
+$curry->hello(); //$curryに置き換わる
+?>
+
+#ゲッター、セッター、カプセル化
+<?php
+class Menu {
+  private $name; // クラス内のみアクセス
+  public function __construct($name) {
+    $this->name = $name;
+  }
+
+  public function getName() {
+    return $this->name;
+  }
+
+  public function setName($name) {
+    $this->name = $name;
+  }
+}
+?>
+
+#クラスプロパティ
+<?php
+class Menu {
+  public static $count = 4; // staticをつけるとクラスプロパティになる
+}
+echo 'メニュー'.Menu::count.'品';
+
+?>
