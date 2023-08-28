@@ -206,7 +206,7 @@ class Menu {
   } // $this : このメソッドを呼び出しているインスタンスに置き換えられる
 }
 
-$curry = new Menu();
+$curry = new Menu(); // インスタンスを生成
 $curry->name = 'CURRY';
 $curry->hello(); //$curryに置き換わる
 ?>
@@ -236,4 +236,98 @@ class Menu {
 }
 echo 'メニュー'.Menu::count.'品';
 
+?>
+
+#クラスメソッド
+<?php
+// 個々のインスタンスのデータに関係ない処理を行うとき
+
+private static $count = 0; // staticを用いて定義
+public static function getcount() {
+  return self::$count;  // selfを使用しているクラス自身を指す
+}
+?>
+
+<?php
+echo Menu::getCount(); // クラスメソッドの呼び出し
+?>
+
+#独自メソッド
+<?php
+class Drink extends Menu {
+  private $type; // 独自プロパティ
+  public function getType() {
+    return $this->type;
+  }
+  public function setType($type) {
+    $this->type = $type;
+  }
+}
+?>
+
+<?php
+$coffee = new Drink('COFFEE',...);
+echo $coffee->getType();
+
+$curry = new Food('CURRY', ...);
+echo $curry->getType();
+?>
+
+#子クラスからのアクセス権
+<?php
+class Menu {
+  $protected $name;
+}
+
+class Drink extends Menu {
+  public function __construct($name,...) {
+    $this->name = $name; // アクセス可能
+  }
+}
+?>
+
+#オーバーライド
+<?php
+class Menu {
+  protected $name;
+  protected $price;
+  protected $image;
+}
+?>
+
+<?php
+class Drink extends Menu { // 継承
+  private $type;
+
+  public function __construct($name, $price, $image, $type) {
+    parent::__construct($name, $price, $iamge); // 親クラスのコンストラクタをオーバーライド
+      $this->type = $type;
+?>
+
+#クエリ情報をURLに載せる
+<a href="show.php?name=<?php echo $menu->getName() ?>">
+<?php echo $menu->getName() ?>
+</a>
+
+show.php----------
+<?php
+$menuName = $_GET['name']; // 受け取った情報を取得
+?>
+
+<h1><?php echo $menuName ?>の詳細ページです</h1>
+
+#特定のインスタンスを取得
+<?php
+$menuName = $_GET['name'];
+$menu = Menu::findByName($menus, $menuName); // 配列menusの中からmenuNameを持つインスタンスを取得
+?>
+
+<?php
+  public static function findByName($menus, $name) {
+    foreach($menus as $menu) {
+      if($menu->getName() == $name) {
+        return $menu;
+      }
+    }
+  }
 ?>
