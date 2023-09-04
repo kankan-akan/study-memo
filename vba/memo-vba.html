@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+#他のセルの値を代入
+Range("L8").Value = Range("C8").Value
+
+#条件分岐
+If (Range"D2").Value = Range("E2").Value) Then
+  Range("L9:Q9").Value = Range("C9:H9").Value <!--出力先が固定されている -->
+End If
+
+Dim ctrRow <!-- 変数を使う　-->
+ctrRow = 8
+If (Range"D2").Value = Range("E8").Value) Then
+  Range("L" & ctrRow).Value = Range("C8").Value
+
+  ctrRow = ctrRow + 1
+
+End If
+</body>
+</html>
+
