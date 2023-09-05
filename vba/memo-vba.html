@@ -23,6 +23,35 @@ If (Range"D2").Value = Range("E8").Value) Then
   ctrRow = ctrRow + 1
 
 End If
+
+#for文
+Dim i
+For i = 8 To endRow
+
+  If (Range("E" & i).Value = Range("D2").Value) Then
+
+    Worksheets("step6_output").Range("C" & ctrRow).Value = Range("E" & i).Value
+    ・
+    ・
+    ・
+    ctrRow = ctrRow + 1
+  End If
+
+  Next i
+
+End Sub
+
+#メソッドの引数
+<!-- 引数任意メソッド -->
+Sub sample2()
+  Worksheets.Add(After:=Activesheet).Name = "abc"
+  Worksheets.Add , Sheets("a"), 2
+End Sub
+
+<!-- 引数必須メソッド -->
+Sub sample3()
+  Range("A3").Value = Application.getPhoneic("山田")
+End Sub
 </body>
 </html>
 
