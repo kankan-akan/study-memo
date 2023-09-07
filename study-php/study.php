@@ -287,5 +287,49 @@ $menu = Menu::findByName($menus, $menuName); // 配列menusの中からmenuName�
   }
 
 #ビルトイン関数
-$input = 'dot_yusuke';
-$input = trim($input); // 
+$input = ' dot_yusuke ';
+$input = trim($input); // "dot_yusuke"]
+
+$input = str_replace('_', '-', $input); // dot-yusuke
+
+$input = 'Call us at 03-3001-1256 or 03-3015-3222';
+$pattern = '/\d{2}-\d{4}-\d{4}/';
+
+#文字列の検索、置換
+preg_match_all($pattern, $input, $matches);
+print_r($matches);
+
+$input = preg_replace($pattern, '**-****-****', $input);
+echo $input . PHP_EOL;
+
+#配列を変換
+$d = [2020, 11, 15];
+echo "$d[0]-$d[1]-$d[2]" . PHP_EOL;
+echo implode('-', $d) . PHP_EOL;
+
+$t = '17:32:15';
+print_r(explode(":", $t));
+
+#配列要素の変更
+$scores = [30, 40, 50];
+array_unshift($scores, 0, 20);
+array_push($scores, 60, 70);
+$scores[] = 80;
+array_shift($scores);
+
+array_pop($scores);
+
+print_r($scores);
+
+#配列の削除
+array_splice($scores, 2, 1, 500);
+// array_splice($scores, 1, 0, [100, 230]);
+
+#全ての要素を変更
+$prices = [100, 200, 300];
+$newPrices = array_map(
+  function ($n){return $n * 1.1; },
+  $prices
+  );
+
+  print_r($newPrices);
