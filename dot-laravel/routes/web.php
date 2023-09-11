@@ -14,5 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts = [
+        'titleA',
+        'titleB',
+        'titleC'
+    ];
+
+    return view('index')
+        ->with(['posts' => $posts]);
 });
