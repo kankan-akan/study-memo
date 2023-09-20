@@ -18,7 +18,7 @@ class PostController extends Controller
     }
 
     public function show($id) {
-        return view('posts.show')
-            ->with(['posts' => $this->posts[$id]]);
+        return view('posts.show') // ディレクトリ構造を記述
+            ->with(['post' => $this->posts[$id]]);
     }
 }
