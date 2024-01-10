@@ -4,6 +4,7 @@
 // console.log(-100);
 
 // console.log(1.2e4);
+// console.log(1.2e-4);
 
 // //変数
 // let price;
@@ -39,17 +40,62 @@
 //   console.log(`'${i}':Hello world`);
 // }
 
-// let command = Number(prompt('1, 2 or 0 to exit'));
-// let command
+/*
+const color = prompt('color?');
+
+switch (color) {
+  case 'red':
+    console.log('Stop');
+    break;
+  case 'blue':
+  case 'green':
+  console.log('Go');
+    break;
+  default:
+    console.log('Wrong color');
+    break;
+  }
+*/
+/*
+for (let i = 0; i < 3; i++) {
+  console.log('Hello');
+}
+*/
+const rate = 1.1;
+/*
+for(let price = 150; price <= 160; price++) {
+  console.log(`Price: ${price}`);
+  for(let amount = 120; amount <= 140; amount+=10) {
+    console.log(price * amount * rate);
+  }
+}
+*/
+/*
+// let command = Number(prompt('Menu 1, 2, 3 or 0 to exit.'));
 
 // while (command !== 0) {
-//   console.log(`${command} is proceed.`);
-//   command = Number(prompt('1, 2 or 0 to exit'));
+//   console.log(`Menu ${command} processed.`);
+//   command = Number(prompt('Menu 1, 2, 3 or 0 to exit.'));
 // }
 
+let command;
+
 do {
-  command = Number(prompt('1, 2 or 0 to exit'));
-  console.log(`${command} is proceed.`);
+  command = Number(prompt('Menu 1, 2, 3 or 0 to exit'));
+  console.log(`Menu ${command} processed.`);
 } while (command !== 0);
+*/
+/*
+let amount = 100;
 
-
+for(let year = 1; year <= 30; year++) {
+  amount *= 1.05;
+  if(amount < 200) {
+    continue;
+  }
+  if(amount > 300) {
+    break;
+  }
+  console.log(`Year: ${year}: ${amount}`);
+}
+*/
