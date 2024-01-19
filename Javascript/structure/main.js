@@ -1,11 +1,11 @@
 'use-strict';
 
 {
-const scores = [
-  70,
-  90,
-  85
-];
+// const scores = [
+//   70,
+//   90,
+//   85
+// ];
 
 /*   console.log(scores[2]);
   console.log(scores.length);
@@ -33,13 +33,61 @@ const scores = [
   scores.push(75); // 末尾に追加
   scores.pop(); // 末尾から削除 */
 
-  sum = 0;
+  /* sum = 0;
 
   scores.forEach((score) => {
     sum += score;
   })
 
   console.log(`Sum: ${sum}`);
-  console.log(`Average: ${sum / scores.length}`);
+  console.log(`Average: ${sum / scores.length}`); */
+}
+
+/* {
+  const scores = {
+    math : 80,
+    english : 90
+  };
+
+  // console.log(scores['math']);
+  // console.log(scores.math);
+  // scores.math = 88;
+  // console.log(scores);
+
+  // scores.physics = 70;
+  // delete scores.english;
+  // console.log(scores);
+
+  let sum = 0;
+
+  scores.physics = 70;
+
+  const entries = Object.entries(scores);  //オブジェクトから、それぞれのプロパティを配列にする
+  console.log(entries);
+
+  entries.forEach((prop) =>  {
+    // console.log(prop);
+    sum += prop[1];
+    console.log(`${prop[0]} : ${prop[1]}`);
+  })
+
+  console.log(`sum : ${sum}`);
+  console.log(`average : ${sum / entries.length}`);
+
+} */
+
+{
+  const scores = [70, 90, 80, 85];
+
+  scores.splice(2, 0, 77, 88);
+
+  const deleted = scores.splice(3, 1);
+  // 削除した要素は１つでも配列になる
+
+  scores.splice(2, 2, 30);
+
+  console.log(scores);
+  console.log(deleted);
+  console.log(scores);
 
 }
