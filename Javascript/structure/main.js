@@ -7,7 +7,7 @@
 //   85
 // ];
 
-/*   console.log(scores[2]);
+/*  console.log(scores[2]);
   console.log(scores.length);
   scores[2] = 95;
   console.log(scores);
@@ -76,7 +76,7 @@
 
 } */
 
-{
+/* {
   const scores = [70, 90, 80, 85];
 
   scores.splice(2, 0, 77, 88);
@@ -89,5 +89,132 @@
   console.log(scores);
   console.log(deleted);
   console.log(scores);
+
+} */
+
+/* {
+  // const names = ['Taro', 'Jiro', 'Saburo'];
+
+  // console.log(names.join('|')); // Taro|Jiro|Saburo
+  // console.log(names.join()); // Taro, ...
+  // console.log(names.join('')); // TaroJiro ...
+
+  const names = 'Taro|Jiro|Saburo'; //配列に変換
+  console.log(names.split('|'));
+
+} */
+
+/* {
+  const prices =[100, 150, 200];
+
+  // const pricesWithTax = [];
+  // prices.forEach((price) => {
+  //   pricesWithTax.push(price * 1.1);
+  // })
+  // ↓↓
+  // const priceWithTax = prices.map((price) => {
+  //   return price * 1.1;
+  // });
+
+  // console.log(priceWithTax);
+
+  // const priceOver150 = [];
+  // prices.forEach((price) => {
+  //   if(price >= 150) {
+  //     priceOver150.push(price);
+  //   }
+  // })
+  // ↓↓
+  // const priceOver150 = prices.filter((price) => {
+  //   return price >= 150;
+  // })
+
+  // console.log(priceOver150);
+
+} */
+
+/* {
+  const scores = [70, 90, 80, 85];
+  const [first, second, third, fourth] = scores; //　分割代入
+  // ↑↑ 配列ではない
+
+  console.log(first);
+  console.log(second);
+  console.log(third);
+  console.log(fourth);
+} */
+
+/* {
+  let start = 'Tokyo';
+  let goal = 'Osaka';
+
+  // let temp = '';
+  // temp = start;
+  // start = goal;
+  // goal = temp;
+  // ↓↓
+  [goal, start] = [start, goal]; // 分割代入で入れ替え
+
+  console.log(start);
+  console.log(goal);
+} */
+
+/* {
+  const scores = [70, 90, 80, 85];
+  const [first, ...others] = scores; // レスト構文
+
+  console.log(first);
+  console.log(others);
+} */
+
+/* {
+  const moreScores = [77, 88];
+  const scores = [70, 90, 80, 85, ...moreScores]; // スプレッド構文
+
+  const [first, ...others] = scores; // レスト構文
+
+  console.log(first);
+  console.log(others);
+} */
+
+/* {
+  const moreScores = {
+    shiro: 77,
+    goro: 88
+  }
+  const scores = {
+    taro: 80,
+    jiro: 70,
+    saburo: 90,
+    ...moreScores
+  }
+  // const {taro, jiro, saburo} = scores;
+  const {taro, ...others} = scores;
+
+  console.log(taro);
+  console.log(others);
+} */
+
+{
+  // let num = 10;
+  // const numBackup = num;
+  // num = 99;
+
+  // console.log(num);
+  // console.log(numBackup);
+
+  // const nums = [10, 20, 30];
+  // const numsBackup = nums;
+  // nums[0] = 99;
+
+  // console.log(nums);
+  // console.log(numsBackup);  //配列の場合は値そのものを指し示す
+  // ↓↓
+  const nums = [10, 20, 30];
+  const numsBackup = [...nums];
+  nums[0] = 99;
+
+  console.log(nums);
+  console.log(numsBackup);
 
 }
