@@ -51,7 +51,7 @@
 
   // console.log(scores['math']);
   // console.log(scores.math);
-  // scores.math = 88;
+  // scores.math = 88; // 
   // console.log(scores);
 
   // scores.physics = 70;
