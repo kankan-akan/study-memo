@@ -81,12 +81,61 @@
     alert(colors.join(','));
   }); */
 
-  document.querySelector('input').addEventListener('input', () => {
+  /* document.querySelector('input').addEventListener('input', () => {
+    // inputイベント→text, textarea, select
+    // changeイベント→radio, checkbox
     const pElement = document.querySelector('p');
     const inputElement = document.querySelector('input');
     pElement.textContent = inputElement.value;
-    pElement.textContent = inputElement.value.length;
-  })
+    // pElement.textContent = inputElement.value.length;
+  }) */
 
-  
+  /* const colors = [];
+  const checkboxElement = document.querySelectorAll('input');
+  const display = document.querySelector('p');
+
+  checkboxElement.forEach((item) => {
+    item.addEventListener('click', () => {
+      if(item.checked === true) {
+        colors.push(item.value);
+      };
+      console.log(colors);
+      display.textContent = colors;
+    });
+  }); */
+
+  /* document.querySelector('input').addEventListener('focus', () => {
+    document.querySelector('p').textContent = 'English only!';
+  });
+  // focusで表示させる
+
+  document.querySelector('input').addEventListener('blur', () => {
+    document.querySelector('p').textContent = '';
+  });
+  // focusを外した時に表示を消す
+
+  document.querySelector('input').focus(); // 最初からfocusを当てたい時 */
+
+  /* document.addEventListener('keydown', (e) => { // 引数を設定し値を渡す
+    document.querySelector('p').textContent = e.key;
+  }); */
+
+  /* document.addEventListener('mousemove', (e) => {
+    document.querySelector('p').textContent = `X: ${e.clientX} Y: ${e.clientY}`;
+  }); */
+
+  /* document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();  // 規定の動作(ページのリロード)を防ぐ
+    document.querySelector('p').textContent = document.querySelector('input').value;
+  }); */
+
+  // 属性の操作
+  // 属性 → src="...", href="...", class="...", style="..."
+  // document.querySelector('img').src = 'cat.png';
+
+  document.querySelector('button').addEventListener('click', () => {
+    // document.querySelector('p').style = 'font-size: 24px';
+    document.querySelector('p').style.fontSize = '24px';
+  });
+
 }
