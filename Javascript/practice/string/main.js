@@ -68,6 +68,4 @@
     const label = String(count).padEnd(2, ' ');
     console.log(`${label}:${bar}`);
   })
-
-  
 }
