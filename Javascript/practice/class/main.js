@@ -218,7 +218,7 @@
 
   const user = new User('Taro', 70);
   // user.score = 100;
-  user.#score = 100000; // クラス外からアクセスできない
+  // user.#score = 100000; // クラス外からアクセスできない
   console.log(user.score);
-  console.log(user.#isValueValid(50));
+  // console.log(user.#isValueValid(50));
 }
