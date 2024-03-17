@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/udemy/React/libs/react.development.js"></script>
+  <script src="/udemy/React/libs/react-dom.development.js"></script>
+  <script src="/udemy/React/libs/babel-standalone.js"></script>
+</head>
+<body>
+  <div  id="app1"></div>
+  <script type="text/babel">
+    const appEl = document.querySelector('#app1');
+    const root = ReactDOM.createRoot(appEl);
+    root.render(<h1>こんにちは</h1>);
+    // function Example() {
+    //   return <h1>Hello component</h1>
+    // }
+    const Example = ()=> {
+      return(
+        <div>Hello World</div>
+      );
+    }
+    root.render(<Example />);
+  </script>
+</body>
+</html>
